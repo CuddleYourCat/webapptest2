@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PhoneBookTestApp
 {
-    class Program
+    internal class Program
     {
         private PhoneBook phonebook = new PhoneBook();
         static void Main(string[] args)

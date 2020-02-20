@@ -1,4 +1,6 @@
-﻿namespace PhoneBookTestApp
+﻿using PhoneBookTestApp.Data.Entities;
+
+namespace PhoneBookTestApp
 {
     public class PhoneBook : IPhoneBook
     {

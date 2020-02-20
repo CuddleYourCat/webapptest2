@@ -1,4 +1,7 @@
-﻿namespace PhoneBookTestApp
+﻿using PhoneBookTestApp.Data;
+using PhoneBookTestApp.Data.Entities;
+
+namespace PhoneBookTestApp
 {
     public interface IPhoneBook
     {
