@@ -2,12 +2,12 @@
 {
     public class PhoneBook : IPhoneBook
     {
-        public void AddPerson(Person person)
+        public Person FindPerson(string firstName, string lastName)
         {
             throw new System.NotImplementedException();
         }
 
-        public Person findPerson()
+        public void AddPerson(Person newPerson)
         {
             throw new System.NotImplementedException();
         }
