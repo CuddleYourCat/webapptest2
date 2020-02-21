@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,9 @@ namespace PhoneBookTestApp.Data
 {
     public class PhoneBookContext : DbContext
     {
-        public DbSet<Person> Persons { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite("Data Source = PhoneBook.db");
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source ={Directory.GetCurrentDirectory()}/PhoneBook.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,8 +25,7 @@ namespace PhoneBookTestApp.Data
                     FirstName = "Chris",
                     LastName = "Johnson",
                     PhoneNumber = "(321) 231-7876",
-                    HouseNumber = 452,
-                    StreetName = "Freeman Drive",
+                    StreetAddress = "452 Freeman Drive",
                     Suburb = "Algonac",
                     State = "MI"
                 },
@@ -35,8 +35,7 @@ namespace PhoneBookTestApp.Data
                     FirstName = "Dave",
                     LastName = "Williams",
                     PhoneNumber = "(231) 502-1236",
-                    HouseNumber = 285,
-                    StreetName = "Huron Street",
+                    StreetAddress = "285 Huron Street",
                     Suburb = "Port Austin",
                     State = "MI"
                 });
