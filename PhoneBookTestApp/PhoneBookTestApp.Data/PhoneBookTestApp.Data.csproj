@@ -153,9 +153,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20200221085422_initial-seed.cs" />
-    <Compile Include="Migrations\20200221085422_initial-seed.designer.cs">
-      <DependentUpon>20200221085422_initial-seed.cs</DependentUpon>
+    <Compile Include="Migrations\20200221110017_initial-seed.cs" />
+    <Compile Include="Migrations\20200221110017_initial-seed.designer.cs">
+      <DependentUpon>20200221110017_initial-seed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PhoneBookContextModelSnapshot.cs" />
     <Compile Include="PhoneBookContext.cs" />
