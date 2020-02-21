@@ -13,7 +13,7 @@ namespace PhoneBookTestApp.Data
     {
         public virtual DbSet<Person> Persons { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source ={Directory.GetCurrentDirectory()}/PhoneBook.db");
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source ={Directory.GetCurrentDirectory()}/MyDatabase.db;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

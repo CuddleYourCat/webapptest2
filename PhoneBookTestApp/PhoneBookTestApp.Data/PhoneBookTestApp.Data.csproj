@@ -153,6 +153,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\DatabaseUtil.cs" />
     <Compile Include="Migrations\20200221110017_initial-seed.cs" />
     <Compile Include="Migrations\20200221110017_initial-seed.designer.cs">
       <DependentUpon>20200221110017_initial-seed.cs</DependentUpon>
@@ -166,9 +167,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Context\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

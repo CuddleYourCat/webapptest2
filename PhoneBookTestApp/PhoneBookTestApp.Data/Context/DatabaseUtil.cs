@@ -1,75 +1,25 @@
 ﻿using System;
-using System.Data.SQLite;
+using Microsoft.EntityFrameworkCore;
+using PhoneBookTestApp.Data;
 
 namespace PhoneBookTestApp
 {
     public class DatabaseUtil
     {
-        public static void initializeDatabase()
+        public static void initializeDatabase(PhoneBookContext context)
         {
-            var dbConnection = new SQLiteConnection("Data Source= MyDatabase.sqlite;Version=3;");
-            dbConnection.Open();
-
-            try
-            {
-                SQLiteCommand command =
-                    new SQLiteCommand(
-                        "create table PHONEBOOK (NAME varchar(255), PHONENUMBER varchar(255), ADDRESS varchar(255))",
-                        dbConnection);
-                command.ExecuteNonQuery();
-
-                command =
-                    new SQLiteCommand(
-                        "INSERT INTO PHONEBOOK (NAME, PHONENUMBER, ADDRESS) VALUES('Chris Johnson','(321) 231-7876', '452 Freeman Drive, Algonac, MI')",
-                        dbConnection);
-                command.ExecuteNonQuery();
-
-                command =
-                    new SQLiteCommand(
-                        "INSERT INTO PHONEBOOK (NAME, PHONENUMBER, ADDRESS) VALUES('Dave Williams','(231) 502-1236', '285 Huron St, Port Austin, MI')",
-                        dbConnection);
-                command.ExecuteNonQuery();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                dbConnection.Close();
-            }
+            context.Database.Migrate();
         }
 
-        public static SQLiteConnection GetConnection()
+        public static void CleanUp(PhoneBookContext context)
         {
-            var dbConnection = new SQLiteConnection("Data Source= MyDatabase.sqlite;Version=3;");
-            dbConnection.Open();
-
-            return dbConnection;
-        }
-
-        public static void CleanUp()
-        {
-            var dbConnection = new SQLiteConnection("Data Source= MyDatabase.sqlite;Version=3;");
-            dbConnection.Open();
-
-            try
+            foreach (var person in context.Persons)
             {
-                SQLiteCommand command =
-                    new SQLiteCommand(
-                        "drop table PHONEBOOK",
-                        dbConnection);
-                command.ExecuteNonQuery();
+                context.Persons.Remove(person);
             }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                dbConnection.Close();
-            }
+
+            context.SaveChanges();
+            context.Database.ExecuteSqlCommandAsync("EXEC sp_MSforeachtable 'DROP TABLE PERSONS");
         }
     }
 }
