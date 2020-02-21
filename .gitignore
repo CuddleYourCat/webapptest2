@@ -236,3 +236,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/PhoneBookTestApp/PhoneBookTestApp/PhoneBook.db
+/PhoneBookTestApp/PhoneBookTestApp.UnitTests/Properties/AssemblyInfo.cs
+/PhoneBookTestApp/PhoneBookTestApp.UnitTests/PhoneBookTestApp.UnitTests.csproj
+/PhoneBookTestApp/PhoneBookTestApp.UnitTests/PhoneBookTest.cs
+/PhoneBookTestApp/PhoneBookTestApp.UnitTests/packages.config
+/PhoneBookTestApp/PhoneBookTestApp.UnitTests/app.config

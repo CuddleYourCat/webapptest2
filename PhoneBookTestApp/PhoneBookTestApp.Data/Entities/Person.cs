@@ -1,9 +1,12 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 namespace PhoneBookTestApp.Data.Entities
 {
     public class Person
     {
-        public int Id { get; set; }
+        public int PersonId { get; set; }
 
         public string FirstName { get; set; }
 
@@ -11,7 +14,13 @@ namespace PhoneBookTestApp.Data.Entities
 
         public string PhoneNumber { get; set; }
 
-        public Address Address { get; set; }
+        public int HouseNumber { get; set; }
+        public string StreetName { get; set; }
+
+        public string Suburb { get; set; }
+
+        public string State { get; set; }
+
     }
 
 }
